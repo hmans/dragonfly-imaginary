@@ -9,6 +9,7 @@ module Dragonfly
       include Dragonfly::Configurable
 
       configurable_attr :server_url
+      configurable_attr :cdn_url
       configurable_attr :bucket
       configurable_attr :username
       configurable_attr :password
@@ -19,7 +20,8 @@ module Dragonfly
           bucket:   bucket,
           username: username,
           password: password,
-          secret: secret)
+          secret: secret,
+          cdn_base_url: cdn_url)
       end
 
       def store(temp_object, opts={})
