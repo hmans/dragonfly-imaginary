@@ -29,7 +29,13 @@ module Dragonfly
       end
 
       def retrieve(uid)
-        URI.parse(client.image_url(uid)).read
+        [
+          URI.parse(client.image_url(uid)).read,
+          {
+            name: "#{uid}.jpg",
+            format: :jpg
+          }
+        ]
       end
 
       def destroy(uid)
